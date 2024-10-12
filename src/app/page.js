@@ -1,8 +1,12 @@
 import Link from 'next/link';
+import Navbar from '../app/navbar/navbar';
+
 
 export default function Home() {
   return (
     <div>
+      <Navbar />  { }
+
       {/* Home Section */}
       <section class="home-section container">
         <h1 class="logo">FoodBridge</h1>
