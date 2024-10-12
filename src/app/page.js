@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import './globals.css';
+import './homePage.css';
 import Navbar from '../app/navbar/navbar';
 
 export default function Home() {
