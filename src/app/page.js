@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import './homePage.css';
 import Navbar from '../app/navbar/navbar';
-
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <Navbar />  { }
 
       {/* Home Section */}
-      <section class="home-section container">
+      <section class="home-section">
         <h1 class="logo">FoodBridge</h1>
         <h2 class="subheading">Connecting restaurants to those in need.</h2>
         <div class="nav-buttons">
@@ -24,7 +24,6 @@ export default function Home() {
 
       {/* About Us Section */}
       <section id="about" class="about-section container">
-        <h1>About Us</h1>
 
         <h2>Our Mission</h2>
         <p>
