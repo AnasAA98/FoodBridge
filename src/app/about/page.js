@@ -1,13 +1,20 @@
+import './styles.css';
+
 export default function Home() {
     return (
-        <div>
+        <div class="container">
 
             <h1>About Us:</h1>
+
+            <h2>
+                Mission:
+
+            </h2>
 
             <p> At FoodBridge, we are on a mission to tackle one of America's most pressing issues: food waste.
                 Did you know that nearly 40% of the food produced in the United States goes uneaten? This staggering
                 amount of waste happens while millions of people struggle to access healthy meals. We believe it doesn’t
-                have to be this way—and that’s where our organization steps in.
+                have to be this way—and that’s where our organization   in.
 
                 Our mission is simple yet powerful:
                 to connect restaurants with communities in need by offering unsold food, meals, and ingredients before they go
