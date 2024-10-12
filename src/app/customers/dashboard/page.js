@@ -1,10 +1,19 @@
 // src/app/customers/dashboard/page.js
 "use client";
 import { useEffect, useState } from "react";
-import { auth } from "./../../../../firebase"; 
+import { auth } from "../../../../firebase";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { getFirestore, doc, getDoc, getDocs, updateDoc, collection, arrayUnion, arrayRemove } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc,
+  collection,
+  arrayUnion,
+  arrayRemove,
+} from "firebase/firestore";
 
 const db = getFirestore();
 
@@ -20,7 +29,11 @@ export default function CustomerDashboard() {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user);
-        await Promise.all([fetchCustomerData(user.uid), fetchCustomerInventory(user.uid), fetchAvailableItems()]);
+        await Promise.all([
+          fetchCustomerData(user.uid),
+          fetchCustomerInventory(user.uid),
+          fetchAvailableItems(),
+        ]);
       } else {
         router.push("/customers/login");
       }
@@ -32,7 +45,7 @@ export default function CustomerDashboard() {
 
   // Fetch customer data to display full name
   const fetchCustomerData = async (customerId) => {
-    const customerRef = doc(db, "users", customerId);  // Adjusted to reference 'users' collection
+    const customerRef = doc(db, "users", customerId); // Adjusted to reference 'users' collection
     const customerDoc = await getDoc(customerRef);
     if (customerDoc.exists()) {
       setUserData(customerDoc.data()); // Store customer data, including full name
@@ -56,11 +69,11 @@ export default function CustomerDashboard() {
       const data = doc.data();
       const restaurantName = data.establishmentName || "Unknown Restaurant";
       const address = data.address || "No Address Provided";
-      data.inventory.forEach(item => {
+      data.inventory.forEach((item) => {
         items.push({
           ...item,
           restaurantName,
-          address
+          address,
         });
       });
     });
@@ -97,9 +110,9 @@ export default function CustomerDashboard() {
 
   return (
     <div>
-      <h1>Welcome, {userData?.name || "Guest"}</h1> {/* Display the customer's full name */}
+      <h1>Welcome, {userData?.name || "Guest"}</h1>{" "}
+      {/* Display the customer's full name */}
       <button onClick={handleLogout}>Logout</button>
-
       <h2>Your Inventory</h2>
       <ul>
         {inventory.map((item) => (
@@ -111,7 +124,6 @@ export default function CustomerDashboard() {
           </li>
         ))}
       </ul>
-
       <h2>Available Items from Restaurants</h2>
       <ul>
         {availableItems.map((item) => (
@@ -122,7 +134,9 @@ export default function CustomerDashboard() {
             <p>{item.name}</p>
             <p>{item.pounds} lbs</p>
             <p>Expires on: {item.expirationDate}</p>
-            <button onClick={() => pickItem(item.restaurantId, item)}>Pick Item</button>
+            <button onClick={() => pickItem(item.restaurantId, item)}>
+              Pick Item
+            </button>
           </li>
         ))}
       </ul>

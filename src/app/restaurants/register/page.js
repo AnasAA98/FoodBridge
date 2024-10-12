@@ -1,9 +1,9 @@
 // src/app/restaurants/register/page.js
 "use client";
 import { useState } from "react";
-import { auth } from "./../../../../firebase"; 
+import { auth } from "../../../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore"; 
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 
 const db = getFirestore(); // Firestore instance
@@ -20,7 +20,11 @@ export default function RestaurantRegister() {
     e.preventDefault();
     try {
       // Create the user in Firebase Authentication
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       // Store the restaurant info in Firestore
@@ -28,14 +32,16 @@ export default function RestaurantRegister() {
         email: user.email,
         establishmentName: establishmentName, // Store the restaurant's name
         address: address, // Store the restaurant's address
-        role: "restaurant" // Storing the role as 'restaurant'
+        role: "restaurant", // Storing the role as 'restaurant'
       });
 
       // Redirect to the restaurant dashboard after registration
       router.push("/restaurants/dashboard");
     } catch (error) {
-      if (error.code === 'auth/email-already-in-use') {
-        setErrorMessage("This email is already registered. Please log in instead.");
+      if (error.code === "auth/email-already-in-use") {
+        setErrorMessage(
+          "This email is already registered. Please log in instead."
+        );
       } else {
         console.error("Registration Error:", error);
         setErrorMessage("An error occurred. Please try again.");

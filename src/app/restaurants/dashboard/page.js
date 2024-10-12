@@ -1,10 +1,18 @@
 // src/app/restaurants/dashboard/page.js
 "use client";
 import { useState, useEffect } from "react";
-import { auth } from "./../../../../firebase";
+import { auth } from "../../../../firebase";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+} from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const db = getFirestore();
@@ -48,16 +56,17 @@ export default function RestaurantDashboard() {
     if (!restaurantDoc.exists()) {
       // If the document does not exist, create it
       await setDoc(restaurantRef, {
-        inventory: [], 
-        establishmentName: restaurantData?.establishmentName || "Unknown Restaurant",
-        address: restaurantData?.address || "Unknown Address"
+        inventory: [],
+        establishmentName:
+          restaurantData?.establishmentName || "Unknown Restaurant",
+        address: restaurantData?.address || "Unknown Address",
       });
     }
   };
 
   // Fetch restaurant data (including establishment name and address)
   const fetchRestaurantData = async (restaurantId) => {
-    const restaurantRef = doc(db, "users", restaurantId);  // Adjusted to reference 'users' collection
+    const restaurantRef = doc(db, "users", restaurantId); // Adjusted to reference 'users' collection
     const restaurantDoc = await getDoc(restaurantRef);
     if (restaurantDoc.exists()) {
       const data = restaurantDoc.data();
@@ -67,7 +76,7 @@ export default function RestaurantDashboard() {
 
   // Fetch restaurant's inventory
   const fetchRestaurantInventory = async (restaurantId) => {
-    const restaurantRef = doc(db, "restaurants", restaurantId);  // Adjusted to reference 'restaurants' collection
+    const restaurantRef = doc(db, "restaurants", restaurantId); // Adjusted to reference 'restaurants' collection
     const restaurantDoc = await getDoc(restaurantRef);
     if (restaurantDoc.exists()) {
       setInventory(restaurantDoc.data().inventory || []);
@@ -124,42 +133,53 @@ export default function RestaurantDashboard() {
 
   return (
     <div>
-      <h1>Welcome, {restaurantData?.establishmentName || "Restaurant"}</h1> {/* Display establishment name */}
-      <p>Address: {restaurantData?.address || "No Address Provided"}</p> {/* Display restaurant address */}
+      <h1>Welcome, {restaurantData?.establishmentName || "Restaurant"}</h1>{" "}
+      {/* Display establishment name */}
+      <p>Address: {restaurantData?.address || "No Address Provided"}</p>{" "}
+      {/* Display restaurant address */}
       <button onClick={handleLogout}>Logout</button>
-
       <h2>Your Inventory</h2>
       <ul>
         {inventory.map((item) => (
           <li key={item.itemId}>
-            <img src={item.imageUrl} alt={item.name} style={{ width: "100%", height: "auto", maxWidth: "300px" }} /> {/* Fix image display */}
+            <img
+              src={item.imageUrl}
+              alt={item.name}
+              style={{ width: "100%", height: "auto", maxWidth: "300px" }}
+            />{" "}
+            {/* Fix image display */}
             <p>{item.name}</p>
             <p>{item.pounds} lbs</p>
             <p>Expires on: {item.expirationDate}</p>
           </li>
         ))}
       </ul>
-
       <h2>Add New Inventory Item</h2>
       <form onSubmit={handleAddItem}>
         <input
           type="text"
           placeholder="Item Name"
           value={newItem.name}
-          onChange={(e) => setNewItem((prev) => ({ ...prev, name: e.target.value }))}
+          onChange={(e) =>
+            setNewItem((prev) => ({ ...prev, name: e.target.value }))
+          }
           required
         />
         <input
           type="number"
           placeholder="Pounds (lb)"
           value={newItem.pounds}
-          onChange={(e) => setNewItem((prev) => ({ ...prev, pounds: e.target.value }))}
+          onChange={(e) =>
+            setNewItem((prev) => ({ ...prev, pounds: e.target.value }))
+          }
           required
         />
         <input
           type="date"
           value={newItem.expirationDate}
-          onChange={(e) => setNewItem((prev) => ({ ...prev, expirationDate: e.target.value }))}
+          onChange={(e) =>
+            setNewItem((prev) => ({ ...prev, expirationDate: e.target.value }))
+          }
           required
         />
         <input
