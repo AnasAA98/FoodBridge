@@ -11,7 +11,6 @@ import {
   setDoc,
   updateDoc,
   arrayUnion,
-  arrayRemove,
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -57,8 +56,7 @@ export default function RestaurantDashboard() {
       // If the document does not exist, create it
       await setDoc(restaurantRef, {
         inventory: [],
-        establishmentName:
-          restaurantData?.establishmentName || "Unknown Restaurant",
+        establishmentName: restaurantData?.establishmentName || "Unknown Restaurant",
         address: restaurantData?.address || "Unknown Address",
       });
     }
