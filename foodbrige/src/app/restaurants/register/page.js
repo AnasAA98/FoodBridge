@@ -11,7 +11,8 @@ const db = getFirestore(); // Firestore instance
 export default function RestaurantRegister() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [establishmentName, setEstablishmentName] = useState(""); // New field for restaurant's name
+  const [establishmentName, setEstablishmentName] = useState(""); // Field for restaurant's name
+  const [address, setAddress] = useState(""); // New field for restaurant address
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
@@ -26,6 +27,7 @@ export default function RestaurantRegister() {
       await setDoc(doc(db, "users", user.uid), {
         email: user.email,
         establishmentName: establishmentName, // Store the restaurant's name
+        address: address, // Store the restaurant's address
         role: "restaurant" // Storing the role as 'restaurant'
       });
 
@@ -50,18 +52,28 @@ export default function RestaurantRegister() {
           placeholder="Establishment Name"
           value={establishmentName}
           onChange={(e) => setEstablishmentName(e.target.value)} // Capture establishment name
+          required
+        />
+        <input
+          type="text"
+          placeholder="Full Address" // New address field
+          value={address}
+          onChange={(e) => setAddress(e.target.value)} // Capture address
+          required
         />
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <button type="submit">Register</button>
       </form>

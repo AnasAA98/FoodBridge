@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import { auth } from "./../../../../firebase"; 
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { getFirestore, doc, getDoc, getDocs, updateDoc, collection, arrayUnion, arrayRemove } from "firebase/firestore";
 
 const db = getFirestore();
 
 export default function CustomerDashboard() {
   const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null); // Holds customer data (full name)
   const [inventory, setInventory] = useState([]); // Customer's inventory
   const [availableItems, setAvailableItems] = useState([]); // All restaurant items
   const [loading, setLoading] = useState(true);
@@ -19,8 +20,7 @@ export default function CustomerDashboard() {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user);
-        fetchCustomerInventory(user.uid);
-        fetchAvailableItems(); // Fetch all restaurant items
+        await Promise.all([fetchCustomerData(user.uid), fetchCustomerInventory(user.uid), fetchAvailableItems()]);
       } else {
         router.push("/customers/login");
       }
@@ -30,12 +30,21 @@ export default function CustomerDashboard() {
     return () => unsubscribe();
   }, []);
 
+  // Fetch customer data to display full name
+  const fetchCustomerData = async (customerId) => {
+    const customerRef = doc(db, "users", customerId);  // Adjusted to reference 'users' collection
+    const customerDoc = await getDoc(customerRef);
+    if (customerDoc.exists()) {
+      setUserData(customerDoc.data()); // Store customer data, including full name
+    }
+  };
+
   // Fetch customer's inventory
   const fetchCustomerInventory = async (customerId) => {
     const customerRef = doc(db, "customers", customerId);
     const customerDoc = await getDoc(customerRef);
     if (customerDoc.exists()) {
-      setInventory(customerDoc.data().inventory);
+      setInventory(customerDoc.data().inventory || []);
     }
   };
 
@@ -45,7 +54,15 @@ export default function CustomerDashboard() {
     const items = [];
     restaurantSnapshot.forEach((doc) => {
       const data = doc.data();
-      items.push(...data.inventory);
+      const restaurantName = data.establishmentName || "Unknown Restaurant";
+      const address = data.address || "No Address Provided";
+      data.inventory.forEach(item => {
+        items.push({
+          ...item,
+          restaurantName,
+          address
+        });
+      });
     });
     setAvailableItems(items);
   };
@@ -80,7 +97,7 @@ export default function CustomerDashboard() {
 
   return (
     <div>
-      <h1>Welcome, {user?.email}</h1>
+      <h1>Welcome, {userData?.name || "Guest"}</h1> {/* Display the customer's full name */}
       <button onClick={handleLogout}>Logout</button>
 
       <h2>Your Inventory</h2>
@@ -99,6 +116,8 @@ export default function CustomerDashboard() {
       <ul>
         {availableItems.map((item) => (
           <li key={item.itemId}>
+            <h3>{item.restaurantName}</h3> {/* Restaurant name */}
+            <p>Address: {item.address}</p> {/* Restaurant address */}
             <img src={item.imageUrl} alt={item.name} width="100" />
             <p>{item.name}</p>
             <p>{item.pounds} lbs</p>
