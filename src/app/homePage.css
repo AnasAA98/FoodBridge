@@ -1,31 +1,47 @@
 body {
-    background-color: #000000;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000;
+}
+
+.left-align-container {
+    text-align: left; /* Ensure the text is aligned to the left */
+    width: 100%; /* Ensure full width of the section */
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    align-items: flex-start; /* Keep content aligned to the left */
+    max-width: 800px; /* Optional: limit the width so it doesn't stretch across the entire screen */
+    margin: 0 auto; /* Center the content horizontally */
 }
 
 h1.logo {
     font-size: 4rem;
-    color: #2d9f44;
     font-weight: bold;
     margin: 20px 0;
+    color: #ffffff;
+    text-align: left;
+}
+
+.food-part {
+    color: white;
+}
+
+.bridge-part {
+    color: #2d9f44;
 }
 
 h2.subheading {
     font-size: 1.5rem;
     color: #ffffff;
     margin-bottom: 40px;
+    text-align: left;
 }
 
 .nav-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 10px;
 }
 
@@ -43,26 +59,23 @@ h2.subheading {
     cursor: pointer;
     border-radius: 5px;
     margin: 10px;
-    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-
-}
-
-home-section .nav-buttons button:hover {
-    background-color: #248538;
 }
 
 .home-section {
     background: url('./media/landingbackground.png') no-repeat center center;
-    padding: 250px;
-    max-width: 1200px;
+    background-size: cover; /* Ensure the image covers the entire section */
+    padding: 150px 0; /* Reduce padding to avoid image cutoff */
+    width: 100%;
+    min-height: 100vh; /* Ensure the section takes the full height of the viewport */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+    text-align: center; /* Center the text */
 }
+
 
 .about-section h1,
 .about-section h2 {
@@ -91,8 +104,6 @@ home-section .nav-buttons button:hover {
     margin: 0 auto;
     height: auto;
 }
-
-
 
 .about-section p {
     color: white;
