@@ -4,31 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FoodBridge</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
     <!-- Navbar -->
     <nav class="navbar">
-      <a href="#about">About</a>
-      <a href="#spotlight">Spotlight</a>
-      <a href="#contact">Contact Us</a>
-      <a href="./login.html">Login</a>
-    </nav>
+        <a href="index.html" class="logo">
+            <span class="food-part">Food</span><span class="bridge-part">Bridge.</span>
+        </a>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="spotlight.html">Spotlight</a>
+        </div>
+    </nav>    
 
     <!-- Home Section -->
     <section class="home-section">
-      <div class="home-content">
-        <h1 class="logo">
-          <span class="food-part">Food</span>
-          <span class="bridge-part">Bridge.</span>
-        </h1>
-        <p>Connecting local restaurants to those in need.</p>
-        <button class="contact-btn">Contact Us</button>
-      </div>
+        <div class="home-content">
+            <h1 class="logo">
+                <span class="food-part">Food</span><span class="bridge-part">Bridge.</span>
+            </h1>
+            <p>Connecting local restaurants to those in need.</p>
+            <div class="actions">
+                <a href="mailto:info@foodbridge.com" class="contact-btn">Contact Us</a>
+                <a href="https://twitter.com/yourusername" target="_blank" class="icon twitter-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/yourusername" target="_blank" class="icon instagram-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
     </section>
 
     <!-- About Us Section -->
@@ -45,38 +52,29 @@
           </p>
         </div>
 
-        <!-- Our Commitment to Charity -->
-        <div class="about-item box">
-          <h2>Our Commitment to Charity</h2>
-          <p>
-            We believe no food should go to waste while so many people struggle
-            with hunger. Our commitment to charity drives us to ensure that
-            excess food from restaurants is rerouted to those who need it most,
-            creating a more sustainable and compassionate community.
-          </p>
-        </div>
+            <!-- How It Works -->
+            <div class="about-item box">
+                <h2>How It Works</h2>
+                <p>
+                    When restaurants donate their untouched, unused food to FoodBridge, they not only help feed the community but also unlock rewards through our Clean & Green Program. These rewards include essential services such as waste management and professional deep cleaning, ensuring your establishment stays spotless. Giving back has never been more rewarding!
+                </p>
+            </div>
 
-        <!-- Small Business Support -->
-        <div class="about-item box">
-          <h2>Supporting Small Businesses</h2>
-          <p>
-            FoodBridge also empowers small businesses to make a difference. By
-            donating their unsold food, restaurants not only help reduce waste
-            but also support those in their local communities who need it, all
-            while enhancing their social impact.
-          </p>
+            <!-- Small Business Support -->
+            <div class="about-item box">
+                <h2>Supporting Small Businesses</h2>
+                <p>
+                    FoodBridge creates a win-win by helping restaurants reduce food waste while feeding those in need. Every donation strengthens the community and supports sustainability, turning surplus into sustenance. Together, we build a cleaner environment and a stronger, more connected society!
+                </p>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <ul>
-        <li><a>Contact Us</a></li>
-      </ul>
-      <div class="copyright">
-        <p>&copy; 2024 FoodBridge | All Rights Reserved</p>
-      </div>
+        <div class="copyright">
+            <p>&copy; 2024 FoodBridge | All Rights Reserved</p>
+        </div>
     </footer>
   </body>
 </html>

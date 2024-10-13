@@ -1,39 +1,49 @@
 # FoodBridge
-Connecting restaurants with those in need.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+FoodBridge is dedicated to solving one of America’s critical issues: **food waste**. While nearly 40% of food produced in the U.S. goes uneaten, millions of people struggle to access healthy meals. **FoodBridge** seeks to address this by connecting surplus food from restaurants, cafes, and bakeries with communities in need.
 
-## Getting Started
+## Demo Video: 
+<img src='https://imgur.com/Q7dCvc8.gif' width='' alt='Video Demo' />
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Mission
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Our goal is simple: to reduce food waste by redistributing unsold food to those experiencing hunger. We aim to foster a solution where businesses reduce waste, and individuals in need receive the nourishment they deserve.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Local Business Partnerships**: Restaurants, cafes, and bakeries committed to reducing waste list unsold food on our platform.
+2. **Food Distribution**: Individuals can easily find and claim available food through our platform, ensuring that good meals don't go to waste.
+3. **Recognition for Partners**: Participating businesses gain public visibility as part of the fight against food waste, encouraging more businesses to join in.
 
-## Learn More
+## Key Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Community-Centered**: We ensure that surplus food reaches those in need, preventing waste and promoting food security.
+- **Free Access**: Both businesses and recipients benefit from a completely free platform, where meals can be shared with no financial burden.
+- **Environmental Impact**: By reducing food waste, we help lower methane emissions and other negative environmental impacts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Our Commitment to Charity
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+FoodBridge operates on a 100% charity-based model. We are driven by the desire to make a difference, not profit. Our funding comes from:
+- **Donations**: Individual and corporate contributions fuel our growth.
+- **Sponsorships**: Partner organizations help us expand our reach.
+- **Advertising**: Collaborations with like-minded businesses help promote our cause.
 
-## Deploy on Vercel
+## Get Involved
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### For Restaurants & Food Businesses
+Join us by listing your unsold food on the platform, helping reduce waste and supporting communities in need. In return, your business gains visibility as a contributor to the fight against hunger.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### For Individuals & Communities
+If you or someone you know is facing food insecurity, our platform offers easy access to free meals in your area. Simply search and claim what you need.
+
+### Sponsors & Donors
+Your support helps us expand our impact. Every contribution goes directly to improving our platform, reaching more communities, and raising awareness about food waste.
+
+## How to Run This Project Locally
+
+If you want to run **FoodBridge** locally or contribute to its development, follow these steps:
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/AnasAA98/FoodBridge.git
