@@ -19,7 +19,7 @@
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: #000000;
     color: var(--text-color);
 }
 
@@ -70,6 +70,7 @@ body {
     justify-content: flex-start;
     text-align: left;
     color: white;
+    background-attachment: fixed;
 }
 
 .home-content {
@@ -160,17 +161,17 @@ body {
 }
 
 .box {
-    background-color: #131313; 
+    background-color: #131313;
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid #2d9f44; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    border: 1px solid #2d9f44;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05); /* Slightly enlarges the box */
+    box-shadow: 0 6px 70px rgba(45, 159, 68, 0.6); /* Green glow on hover */
 }
 
 .about-item h2 {
