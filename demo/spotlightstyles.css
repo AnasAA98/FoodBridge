@@ -39,11 +39,23 @@ body {
     text-decoration: none;
     margin: 0 15px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 600; /* Slightly thicker text */
+    position: relative; /* Required for ::after positioning */
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background-color: white; /* Color of the underline */
+    left: 0;
+    bottom: -2px; /* Slightly below the text */
+    transition: width 0.3s ease; /* Transition for the underline effect */
 }
 
 .navbar a:hover::after {
-    width: 100%;
+    width: 100%; /* Expands the underline on hover */
 }
 
 /* Spotlight Section */
