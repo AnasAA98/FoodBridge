@@ -9,60 +9,36 @@ export default function Home() {
 
       {/* Home Section */}
       <section className="home-section">
-      <div className="left-align-container">
         <h1 className="logo">
           <span className="food-part">Food</span>
           <span className="bridge-part">Bridge.</span>
         </h1>
         <h2 className="subheading">Connecting restaurants to those in need.</h2>
-      </div>
         <div className="nav-buttons">
-          <Link href="/customers">
-            <button>Customers</button>
-          </Link>
-          <Link href="/restaurants">
-            <button>Restaurants</button>
-          </Link>
+          <Link href="/customers"><button>Customers</button></Link>
+          <Link href="/restaurants"><button>Restaurants</button></Link>
           <Link href="#about"></Link>
         </div>
       </section>
 
       {/* About Us Section */}
-      <section id="about" className="about-section container">
+      <section id="about" className="about-section">
         <h2>Our Mission</h2>
         <p>
-          At FoodBridge, we are on a mission to tackle one of America's most pressing issues: food waste. Did you know that
-          nearly 40% of the food produced in the United States goes uneaten? This staggering amount of waste happens while
-          millions of people struggle to access healthy meals. We believe it doesn’t have to be this way—and that’s where our
-          organization comes in.
+          At FoodBridge, we are on a mission to tackle one of America's most pressing issues: food waste. Nearly 40% of the food produced in the United States goes uneaten, while millions struggle to access healthy meals. 
         </p>
         <p>
-          Our mission is simple yet powerful: to connect restaurants with communities in need by offering unsold food, meals,
-          and ingredients before they go to waste. Through our platform, restaurants can schedule free pick-up times for food
-          that would otherwise be discarded. Instead of letting it go to landfills, they contribute to feeding those who need
-          it most.
+          Our platform connects restaurants with communities in need by offering unsold food, meals, and ingredients before they go to waste. Instead of letting food go to landfills, restaurants contribute to feeding those who need it most.
         </p>
+        
         <h2>How It Works</h2>
         <p>
-          We partner with local restaurants, bakeries, and cafes that share our vision of fighting food waste and supporting
-          those facing food insecurity. These establishments list available food for pick-up on our platform, which users in
-          need can access. It’s completely free for the recipients and provides an essential service: nourishing people while
-          reducing waste.
+          We partner with local restaurants, bakeries, and cafes to fight food waste and support those facing food insecurity. Restaurants list available food for pick-up, which users can access for free.
         </p>
+
         <h2>Our Commitment to Charity</h2>
         <p>
-          What sets us apart is our 100% charity-based model. We are driven by a passion for making an impact, not by profit. Our
-          operations rely entirely on donations, sponsorships, and advertising partnerships. Every donation goes directly to
-          expanding our reach, developing better technology to connect more businesses and people, and raising awareness of the
-          food waste crisis.
-        </p>
-        <p>
-          Together, with the help of our restaurant partners, sponsors, and caring communities, we aim to ensure that no good
-          food goes to waste, and no one goes without a meal. Every meal we save is a meal that can fuel someone’s day, provide
-          warmth, and create a stronger, more connected society.
-        </p>
-        <p>
-          Join us in this fight to end food waste and hunger. Together, we can make a difference—one meal at a time.
+          Our 100% charity-based model ensures that all donations go toward expanding our reach, developing better technology, and raising awareness of the food waste crisis. Together, we can ensure no food goes to waste.
         </p>
       </section>
     </div>
