@@ -75,27 +75,14 @@ body {
 .home-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Ensures all elements are aligned to the left */
-    margin-left: 50px; /* Adjust the margin as needed for spacing */
+    align-items: flex-start;
+    margin-left: 50px;
 }
 
-h1.logo {
-    font-size: 5rem;
-    font-weight: bold;
-    color: white;
-}
-
-.food-part {
-    color: white;
-}
-
-.bridge-part {
-    color: #2d9f44; /* The green color */
-}
-
-.home-content p {
-    font-size: 1.5rem;
-    margin: 10px 0 20px;
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adds space between the button and icons */
 }
 
 .contact-btn {
@@ -112,6 +99,28 @@ h1.logo {
 .contact-btn:hover {
     background-color: #10f536;
     transform: scale(1.05);
+}
+
+/* Icon Styles */
+.icon {
+    font-size: 1.8rem;
+    color: #2d9f44; /* Green color */
+    text-decoration: none;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon:hover {
+    color: #10f536;
+    box-shadow: 0 0 10px #10f536, 0 0 20px #10f536; /* Green glow effect on hover */
+}
+
+.email-icon i, .instagram-icon i {
+    font-size: 1.8rem; /* Adjust icon size */
+}
+
+/* Additional margin for alignment */
+.actions a {
+    margin-left: 10px;
 }
 
 /* About Section */
