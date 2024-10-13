@@ -2,6 +2,9 @@
 
 FoodBridge is dedicated to solving one of America’s critical issues: **food waste**. While nearly 40% of food produced in the U.S. goes uneaten, millions of people struggle to access healthy meals. **FoodBridge** seeks to address this by connecting surplus food from restaurants, cafes, and bakeries with communities in need.
 
+## Demo Video: <img src='https://imgur.com/pPnug6X.gif' title='Video Demo' width='' alt='Video Demo' />
+
+
 ## Mission
 
 Our goal is simple: to reduce food waste by redistributing unsold food to those experiencing hunger. We aim to foster a solution where businesses reduce waste, and individuals in need receive the nourishment they deserve.
