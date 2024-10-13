@@ -27,11 +27,33 @@ body {
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    background-color: #3b7e35e5;
-    padding: 15px;
-    text-align: center;
+    background-color: #4fa044; /* Light green background */
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes logo to the left and links to the right */
     z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo (unclickable) */
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    pointer-events: none; /* Makes the logo unclickable */
+}
+
+.navbar .logo .food-part {
+    color: white;
+}
+
+.navbar .logo .bridge-part {
+    color: #1b8012; /* Green for 'Bridge' */
 }
 
 .navbar a {
@@ -39,24 +61,30 @@ body {
     text-decoration: none;
     margin: 0 15px;
     font-size: 1rem;
-    font-weight: 600; /* Slightly thicker text */
-    position: relative; /* Required for ::after positioning */
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #1b8012;
 }
 
 .navbar a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px; /* Thickness of the underline */
-    background-color: white; /* Color of the underline */
+    height: 2px;
+    background-color: #1b8012; /* Green underline on hover */
     left: 0;
-    bottom: -2px; /* Slightly below the text */
-    transition: width 0.3s ease; /* Transition for the underline effect */
+    bottom: -2px;
+    transition: width 0.3s ease;
 }
 
 .navbar a:hover::after {
-    width: 100%; /* Expands the underline on hover */
+    width: 100%;
 }
+
 
 /* Home Section */
 .home-section {
