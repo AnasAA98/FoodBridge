@@ -139,14 +139,19 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
 .restaurant-name {
     color: var(--main-color);
     font-weight: bold;
 }
 
 p {
-    color: var(--text-color);
     font-size: 1.2rem;
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
@@ -154,7 +159,6 @@ p {
     margin-top: 30px;
 }
 
-/* Restaurant Image Pedestal */
 .restaurant-img {
     max-width: 100%;
     height: auto;
