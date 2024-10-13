@@ -68,16 +68,49 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden; /* Hide overflow for spotlight effect */
 }
 
+/* Spotlight Effect */
+.spotlight {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0) 70%);
+    animation: moveSpotlight 4s infinite ease-in-out alternate; /* Moving animation */
+    pointer-events: none; /* Make sure the spotlight is not interactable */
+    z-index: 1; /* Ensure spotlight appears above content */
+}
+
+/* Spotlight animation */
+@keyframes moveSpotlight {
+    0% {
+        top: -50%;
+        left: 30%;
+        transform: translateX(-50%);
+    }
+    100% {
+        top: -50%;
+        left: 70%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Spotlight content */
 .spotlight-content {
     max-width: 800px;
     margin: 0 auto;
     background-color: var(--second-bg-color);
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5), 0 -5px 10px rgba(0, 0, 0, 0.2); /* Pedestal effect */
     border: 1px solid var(--main-color);
+    position: relative;
+    z-index: 2; /* Keep content above the spotlight */
 }
 
 h1, h2 {
@@ -86,20 +119,9 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
-h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
 .restaurant-name {
     color: var(--main-color);
     font-weight: bold;
-}
-
-p {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    margin-bottom: 20px;
 }
 
 .restaurant-info {
@@ -109,12 +131,13 @@ p {
     margin-top: 30px;
 }
 
+/* Restaurant Image Pedestal */
 .restaurant-img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0px 10px rgba(0, 255, 0, 0.3); /* Pedestal shadow */
 }
 
 .testimonial {
@@ -123,6 +146,7 @@ p {
     color: var(--text-color);
     max-width: 700px;
 }
+
 
 /* Footer */
 .footer {
@@ -135,7 +159,8 @@ p {
     bottom: 0;
 }
 
-.footer ul li a:hover {
+.footer ul li a:
+hover {
     color: var(--main-color);
     cursor: pointer;
 }
